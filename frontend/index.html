@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Medical ChatBot</title>
+    <link rel="stylesheet" href="styles.css?v=2">
+    <!-- Thêm Leaflet Map -->
+    <link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+    <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+</head>
+<body>
+    <div class="app-container">
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <div class="sidebar-header">
+                <button class="new-chat-btn" onclick="newChat()">
+                    <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg"><line x1="12" y1="5" x2="12" y2="19"></line><line x1="5" y1="12" x2="19" y2="12"></line></svg>
+                    Cuộc trò chuyện mới
+                </button>
+            </div>
+            
+            <div class="sidebar-content">
+                <div class="history-label">Lịch sử trò chuyện</div>
+                <div id="chatHistory" class="chat-history-list">
+                    <!-- History items will be injected here -->
+                </div>
+            </div>
+
+            <div class="sidebar-footer">
+                <div class="api-connection-box">
+                    <div class="status-indicator">
+                        <span class="dot" id="statusIndicator"></span>
+                        <span class="status-text" id="statusText">Kết nối...</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Main Chat Area -->
+        <div class="main-content">
+            <div class="chat-container" id="chatMessages">
+                <div class="empty-state">
+                    <h1>Chào bạn, tôi có thể giúp gì cho bạn?</h1>
+                    <p>Hãy đặt câu hỏi về triệu chứng hoặc dinh dưỡng để tôi hỗ trợ.</p>
+                </div>
+            </div>
+
+
+            <!-- Input Area -->
+            <div class="input-container">
+                <div class="input-box-wrapper">
+                    <textarea 
+                        id="messageInput" 
+                        placeholder="Nhập câu hỏi của bạn vào đây..." 
+                        rows="1"
+                    ></textarea>
+                    <button id="sendBtn" class="send-button" title="Gửi (Enter)">
+                        <svg stroke="currentColor" fill="none" stroke-width="2" viewBox="0 0 24 24" stroke-linecap="round" stroke-linejoin="round" height="16" width="16" xmlns="http://www.w3.org/2000/svg"><line x1="22" y1="2" x2="11" y2="13"></line><polygon points="22 2 15 22 11 13 2 9 22 2"></polygon></svg>
+                    </button>
+                </div>
+                <div class="disclaimer">
+                    Trợ lý y tế có thể đưa ra thông tin không chính xác. Xin hãy luôn tham khảo ý kiến bác sĩ chuyên khoa.
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="script.js?v=4"></script>
+</body>
+</html>
